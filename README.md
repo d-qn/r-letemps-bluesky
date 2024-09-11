@@ -1,4 +1,4 @@
-# R-Bloggers Bot 
+# R Le Temps rss Bot 
 
 
 This is the bot behind <https://bsky.app/profile/r-bloggers.bsky.social>.
