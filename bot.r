@@ -46,11 +46,11 @@ posts <- rss_posts |>
 
 
 ## Part 3: get already posted updates and de-duplicate
-Sys.setenv(BSKY_TOKEN = "r-bloggers.rds")
-auth(user = "r-bloggers.bsky.social",
+Sys.setenv(BSKY_TOKEN = "letemps_bsky.rds")
+auth(user = "letemps.bsky.social",
      password = Sys.getenv("ATR_PW"),
      overwrite = TRUE)
-old_posts <- get_skeets_authored_by("r-bloggers.bsky.social", limit = 5000L)
+old_posts <- get_skeets_authored_by("letemps.bsky.social", limit = 5000L)
 posts_new <- posts |>
   filter(!post_text %in% old_posts$text)
 
