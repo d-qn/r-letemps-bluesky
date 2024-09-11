@@ -7,8 +7,8 @@ library(glue)
 library(purrr)
 library(xml2)
 
-## Part 1: read RSS feed
-feed <- read_xml("http://r-bloggers.com/rss")
+## Part 1: read RSS feed vers "Tous les articles"
+feed <- read_xml("https://www.letemps.ch/articles.rss")
 # minimal custom RSS reader
 rss_posts <- tibble::tibble(
   title = xml_find_all(feed, "//item/title") |>
