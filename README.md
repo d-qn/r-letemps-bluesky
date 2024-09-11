@@ -1,4 +1,5 @@
-# R-Bloggers Bot <img src="logo.png" align="right" height="120">
+# R-Bloggers Bot 
+
 
 This is the bot behind <https://bsky.app/profile/r-bloggers.bsky.social>.
 It parses the RSS feed of new blogs posts from the blog aggregator site https://www.r-bloggers.com/ and advertises them once per hour on Bluesky.
