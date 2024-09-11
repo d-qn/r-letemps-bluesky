@@ -1,4 +1,4 @@
-name: "Update Le Temps RSS Bot"
+name: "Update Le Temps RSS BlueSky Bot"
 on:
   schedule:
     - cron: '0 * * * *' # run the bot once an hour (at every minute 0 on the clock)
