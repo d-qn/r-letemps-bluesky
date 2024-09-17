@@ -47,6 +47,8 @@ posts <- rss_posts |>
          post_text = glue("{title}\n\n\"{desc_preview}\"\n\n{link}"))
 
 
+
+
 ## Part 3: get already posted updates and de-duplicate
 Sys.setenv(BSKY_TOKEN = "letemps_bsky.rds")
 auth(user = "letemps.bsky.social",
@@ -54,7 +56,8 @@ auth(user = "letemps.bsky.social",
      overwrite = TRUE)
 old_posts <- get_skeets_authored_by("letemps.bsky.social", limit = 5000L)
 posts_new <- posts |>
-  filter(!post_text %in% old_posts$text)
+  filter(!post_text %in% old_posts$text) %>%
+  filter(nchar(post_text) <= 300)
 
 
 ## Part 4: Post skeets!
