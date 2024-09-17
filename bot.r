@@ -41,7 +41,9 @@ rss_posts <- tibble::tibble(
 ## Part 2: create posts from feed
 posts <- rss_posts |>
   mutate(desc_preview_len = 294 - nchar(title) - nchar(link),
-         desc_preview = map2_chr(description, desc_preview_len, function(x, y) str_trunc(x, y)),
+         desc_preview_len_tmp = ifelse(desc_preview_len < 3, 3, desc_preview_len),
+         desc_preview = map2_chr(description, desc_preview_len_tmp, function(x, y) str_trunc(x, y)),
+         desc_preview = ifelse(desc_preview_len_tmp < 3, "", desc_preview),
          post_text = glue("{title}\n\n\"{desc_preview}\"\n\n{link}"))
 
 
