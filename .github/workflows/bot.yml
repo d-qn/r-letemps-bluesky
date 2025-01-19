@@ -41,6 +41,9 @@ jobs:
           pak::pkg_install(deps)
         shell: Rscript {0}
 
+      - name: Check R package versions
+        run: Rscript -e "packageVersion('httr2')"
+
         # after all the preparation, it's time to run the bot
       - name: "Bot - Run"
         run: Rscript 'bot.r'
