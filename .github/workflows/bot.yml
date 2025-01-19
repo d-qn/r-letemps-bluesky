@@ -42,7 +42,8 @@ jobs:
         shell: Rscript {0}
 
       - name: Check R package versions
-        run: Rscript -e "packageVersion('httr2')"
+        #run: Rscript -e "packageVersion('httr2')"
+        run: Rscript -e "remotes::install_version('httr2', version = "httr2_1.0.7")"
 
         # after all the preparation, it's time to run the bot
       - name: "Bot - Run"
