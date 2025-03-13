@@ -13,7 +13,7 @@ rss_settings  <- tibble (
   token = c( "letemps_bsky.rds", "heidi_news_bsky.rds")
   )
 
-for (i in 1:nrow(rss_settings)) {
+for (i in 2:nrow(rss_settings)) {
 
   ## Part 1: read RSS feed vers "Tous les articles"
   feed <- read_xml(rss_settings$url[i])
@@ -78,6 +78,26 @@ for (i in 1:nrow(rss_settings)) {
 }
 
 
+
+## Part 2: reskeet any skeet from a follower who tagged Le Temps
+# i <- 1
+# # auth
+# Sys.setenv(BSKY_TOKEN = rss_settings$token[i])
+# auth(user = rss_settings$handle[i],
+#      password = if(i == 1) Sys.getenv("ATR_PW") else Sys.getenv("ATR_PW_HD"),
+#      overwrite = TRUE)
+#
+# # Get list of users you follow
+# following <- get_follows(rss_settings$handle[i], limit = 100) |>
+#   pull("did")
+#
+# # Get recent mentions
+# mentions <- get_mentions()
+
+
+
+
+
 # ## Part 1: read RSS feed vers "Tous les articles"
 # feed <- read_xml("https://www.letemps.ch/articles.rss")
 # # minimal custom RSS reader
@@ -107,6 +127,3 @@ for (i in 1:nrow(rss_settings)) {
 #         trimws()
 #     }, FUN.VALUE = character(1))
 # )
-
-
-
